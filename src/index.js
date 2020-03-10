@@ -23,12 +23,16 @@ async function changeSource() {
     render(data)
 }
 
-function showSources(data) {
+function showSources(data, selected) {
+    selected = !!selected ? selected : 0;
     const select = document.querySelector(selectEl);
-    data.forEach(d => {
+    data.forEach((d, i) => {
         const option = document.createElement('option');
         option.value = d.name;
         option.text = d.data;
+        if (i === selected) {
+            option.selected = 'selected';
+        }
         select.appendChild(option);
     });
 }
@@ -42,11 +46,8 @@ async function init () {
     });
 
     const sources = await getSources();
-    showSources(sources);
     const data = await getDatFromSource(sources[sources.length - 1].name);
-
-    const options = document.querySelectorAll(selectEl + '>option');
-    options[options.length - 1].selected = 'selected';
+    showSources(sources, sources.length - 1);
 
     render(data)
         .setMap(map);
