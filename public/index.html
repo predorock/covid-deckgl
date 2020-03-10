@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COVID-19 Italy Data</title>
+    <meta name="description" content="COVID-19 Italy data with Deck.gl">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="map"></div>
+<div class="field source-select-container">
+    <label class="label">Dati Province</label>
+    <div class="control">
+        <div class="select">
+            <select id="source-select" name="source-select" onchange="changeSource()">
+            </select>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="tooltip"></div>
+
+<div class="footer">
+    <span>Made @ home by <a href="https://github.com/predorock" rel="noreferrer" target="_blank">Marco Predari</a></span> -
+    <span><a href="https://github.com/pcm-dpc/COVID-19" rel="noreferrer" target="_blank"> Data source </a></span> -
+    <span><a href="https://deck.gl/#/" rel="noreferrer" target="_blank"> Deck.gl </a></span>
+</div>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ9aC7CYAHiHboet55STMb2jyZolM2aSs&callback=initMap"></script>
+<script src="main.js"></script>
+
+</body>
+</html>

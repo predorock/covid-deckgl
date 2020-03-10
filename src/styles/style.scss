@@ -1,0 +1,45 @@
+@charset "utf-8";
+@import "./node_modules/bulma/sass/utilities/_all.sass";
+@import "./node_modules/bulma/sass/form/shared.sass";
+@import "./node_modules/bulma/sass/form/tools.sass";
+@import "./node_modules/bulma/sass/form/select.sass";
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+#map {
+  width: 100vw;
+  height: 100vh;
+}
+
+#tooltip {
+  position: absolute;
+  background: white;
+  margin: 10px;
+  padding: 10px;
+}
+
+.source-select-container {
+  position: absolute;
+  top: 25px;
+  right: 100px;
+  color: white;
+  .label {
+    color: white;
+  }
+}
+.footer {
+  position: absolute;
+  left: 10px;
+  bottom: 25px;
+  width: 100%;
+  color: white;
+}
+.footer span {
+  width: 100%;
+  font-size: 18px;
+}
+.footer span a:visited {
+  color: azure;
+}
+
