@@ -3,6 +3,7 @@ import mapStyles from './js/dark-map-style';
 import {render} from './js/deck';
 
 const selectEl = '#source-select';
+let analitics = null;
 
 
 function getSources() {
@@ -18,9 +19,13 @@ function getDatFromSource(input) {
 }
 
 async function changeSource() {
-    const value = document.querySelector(selectEl).value;
-    const data = await getDatFromSource(value);
-    render(data)
+    const el = document.querySelector(selectEl);
+    const data = await getDatFromSource(el.value);
+    render(data);
+
+    analitics.logEvent('source_changed', {
+        source: el.value,
+    });
 }
 
 function showSources(data, selected) {
@@ -56,3 +61,19 @@ async function init () {
 window.initMap = init;
 window.changeSource = changeSource;
 
+document.addEventListener('DOMContentLoaded', () => {
+    const firebaseConfig = {
+        apiKey: "AIzaSyA_E0PhBv-tAdh9K02Y6EaPI2kqQ8lHFHs",
+        authDomain: "covid-deckgl.firebaseapp.com",
+        databaseURL: "https://covid-deckgl.firebaseio.com",
+        projectId: "covid-deckgl",
+        storageBucket: "covid-deckgl.appspot.com",
+        messagingSenderId: "396813169079",
+        appId: "1:396813169079:web:46cc801619fa819f99b832",
+        measurementId: "G-S0FTKQBSBQ"
+    };
+    firebase.initializeApp(firebaseConfig);
+    analitics = firebase.analytics();
+
+    analitics.logEvent('page_visualization');
+});

@@ -3,10 +3,13 @@
 @import "./node_modules/bulma/sass/form/shared.sass";
 @import "./node_modules/bulma/sass/form/tools.sass";
 @import "./node_modules/bulma/sass/form/select.sass";
+
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
+  overflow: hidden;
 }
+
 #map {
   width: 100vw;
   height: 100vh;
