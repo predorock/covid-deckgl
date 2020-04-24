@@ -4,7 +4,7 @@ const fs = require('fs');
 const fsx = require('fs-extra');
 const moment = require('moment');
 
-const inputDir = './data/dati-province';
+const inputDir = '/Users/predo/Documents/projects/COVID-19/dati-province';
 const outputDir = './public/data';
 
 const ignore = [
@@ -25,7 +25,7 @@ function getJSON(input) {
         .getJsonFromCsv(input);
 }
 
-const directoryPath = path.join(__dirname, inputDir);
+const directoryPath = inputDir;
 
 fsx.ensureDir(outputDir);
 
@@ -44,7 +44,7 @@ fs.readdir(directoryPath, function (err, files) {
         .filter(f => ignore.indexOf(f) === -1)
         .forEach(function (file) {
         // Do whatever you want to do with the file
-        const input = path.join(__dirname, inputDir, file);
+        const input = path.join(inputDir, file);
         const outName = file.substr(0, file.lastIndexOf(".")) + ".json";
         const output = path.join(__dirname, outputDir, outName);
         const json = getJSON(input);
