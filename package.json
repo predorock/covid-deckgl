@@ -20,7 +20,7 @@
   "devDependencies": {
     "convert-csv-to-json": "0.0.15",
     "fs-extra": "8.1.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "webpack": "4.42.0",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3"
